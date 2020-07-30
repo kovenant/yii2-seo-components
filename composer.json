@@ -1,0 +1,46 @@
+{
+  "name": "kovenant/yii2-seo-components",
+  "description": "Seo components for Yii 2",
+  "keywords": [
+    "yii2",
+    "extension",
+    "behavior",
+    "seo"
+  ],
+  "homepage": "https://github.com/kovenant/yii2-seo-components",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/kovenant/yii2-seo-components/issues?state=open",
+    "source": "https://github.com/kovenant/yii2-seo-components"
+  },
+  "authors": [
+    {
+      "name": "Anton Berezin",
+      "email": "kovenant.rus@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "yiisoft/yii2": "~2.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "kovenant\\seo\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "kovenant\\seo\\tests\\": "tests"
+    }
+  }
+}
