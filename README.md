@@ -26,6 +26,8 @@ Usage
 
 Add SeoModelBehavior to your model
 
+{id} and {alias} will be replaced to attribute value with such name
+
 ````php
     /**
      * @return array
