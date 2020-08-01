@@ -26,7 +26,9 @@ Usage
 
 Add SeoModelBehavior to your model
 
-{id} and {alias} will be replaced to attribute value with such name
+{id}, {category_id} and {alias} will be replaced to attribute value of current model with such name
+
+{category.alias} will be replaced to relation's value of attribute
 
 ````php
     /**
@@ -37,7 +39,7 @@ Add SeoModelBehavior to your model
         return [
             [
                 'class' => SeoModelBehavior::class,
-                'route' => ['/catalog/view', 'id' => '{id}', 'alias' => '{alias}']
+                'route' => ['catalog/item', 'categoryId' => '{category_id}', 'categoryAlias' => '{category.alias}', 'id' => '{id}', 'alias' => '{alias}']
             ],
         ];
     }
