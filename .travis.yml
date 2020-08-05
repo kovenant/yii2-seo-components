@@ -1,0 +1,36 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+  - 7.4
+
+sudo: false
+
+# cache vendor dirs
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - sudo pip install codecov
+
+install:
+  - travis_retry composer self-update && composer --version
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - travis_retry composer install --prefer-dist --no-interaction
+
+before_script:
+  - |
+    if [ $TRAVIS_PHP_VERSION = '5.6' ]; then
+      PHPUNIT_FLAGS="--coverage-clover=coverage.xml"
+    fi
+
+script:
+  - ./vendor/bin/phpunit --verbose $PHPUNIT_FLAGS
+
+after_success:
+  - codecov
