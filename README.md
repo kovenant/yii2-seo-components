@@ -3,6 +3,9 @@ This pack.
 
 [![Latest Version](https://img.shields.io/packagist/v/kovenant/yii2-seo-components.svg?style=flat-square)](https://packagist.org/packages/kovenant/yii2-seo-components)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://travis-ci.com/kovenant/yii2-seo-components.svg?branch=master)](https://travis-ci.com/kovenant/yii2-seo-components)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kovenant/yii2-seo-components/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kovenant/yii2-seo-components/?branch=master)
+[![codecov](https://codecov.io/gh/kovenant/yii2-seo-components/branch/master/graph/badge.svg)](https://codecov.io/gh/kovenant/yii2-seo-components)
 
 Installation
 ------------
