@@ -1,5 +1,4 @@
 # yii2-seo-components
-This pack.
 
 [![Latest Version](https://img.shields.io/packagist/v/kovenant/yii2-seo-components.svg?style=flat-square)](https://packagist.org/packages/kovenant/yii2-seo-components)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
