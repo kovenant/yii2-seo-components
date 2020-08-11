@@ -10,16 +10,20 @@ use yii\base\Model;
  * @package kovenant\seo\tests\models
  * @author Anton Berezin <kovenant.rus@gmail.com>
  *
- * @method getRouteUrl(array $params = [])
- * @see SeoModelBehavior::getRouteUrl()
- * @method getUrl(array $params = [])
- * @see SeoModelBehavior::getUrl()
- * @method getAbsoluteUrl(array $params = [])
- * @see SeoModelBehavior::getAbsoluteUrl()
+ * @mixin SeoModelBehavior
  */
 class ExampleModel extends Model
 {
-    const EXAMPLE_ALIAS = 'test';
+    /**
+     * Attributes instead database values
+     * @var string
+     */
+    public $alias = 'alias-value';
+    public $name = 'Name value';
+    public $description = 'Example description';
+    public $title = 'Meta title';
+    public $keywords = 'Meta keywords';
+    public $h1 = 'H1 tag value';
 
     public function behaviors()
     {
@@ -29,14 +33,5 @@ class ExampleModel extends Model
                 'route' => ['/example/action', 'alias' => '{alias}']
             ]
         ];
-    }
-
-    /**
-     * Example getter instead table field
-     * @return string
-     */
-    public function getAlias()
-    {
-        return self::EXAMPLE_ALIAS;
     }
 }

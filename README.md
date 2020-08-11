@@ -23,7 +23,7 @@ or add this code line to the `require` section of your `composer.json` file:
 "kovenant/yii2-seo-components": "*"
 ```
 
-Usage
+SeoModelBehavior Usage
 -----
 
 Add SeoModelBehavior to your model
@@ -40,7 +40,7 @@ Add SeoModelBehavior to your model
     {
         return [
             [
-                'class' => SeoModelBehavior::class,
+                'class' => \kovenant\seo\SeoModelBehavior::class,
                 'route' => ['catalog/item', 'categoryId' => '{category_id}', 'categoryAlias' => '{category.alias}', 'id' => '{id}', 'alias' => '{alias}']
             ],
         ];
@@ -81,4 +81,75 @@ E.g.
     ],
 ````
 
-###### New yii2 seo components will be added to this pack soon
+MetaTagsWidget.php Usage
+-----
+
+Add MetaTagsWidget to your view
+
+````php
+/** yii\db\ActiveRecord $model */
+\kovenant\seo\MetaTagsWidget::widget(['component' => $model]);
+````
+
+In addition to the widget settings you can configure common widget options via container definitions in your config file
+
+Example of full options:
+
+````php
+    'container' => [
+        'definitions' => [
+            'kovenant\seo\MetaTagsWidget' => [
+                // set view attributes
+                'viewH1Attribute' => 'h1', /* use <h1><?= $this->h1 ?></h1> in your view/layout */
+                'viewTitleAttribute' => 'title', /* will produce <title> */
+
+                // Set the model attributes
+                'componentNameAttribute' => 'name', // default name attribute (e.g. for link name)
+                'componentH1Attribute' => 'h1', // h1 for page
+                'componentTitleAttribute' => 'title', // meta title
+                'componentKeywordsAttribute' => 'keywords', // meta keywords
+                'componentDescriptionAttribute' => 'description', // meta description
+
+                // set pager params
+                'pageText' => 'Страница', // page text [Page for default]
+                'pageParam' => 'page', // get param for current page
+
+                // templates settings {text} will be replaced to corresponding value
+                'templateH1' => '{text}',
+                'templateTitle' => '{text}{pager} | {appName}', // {appName} - name of application
+                'templateKeywords' => '{text}',
+                'templateDescription' => '{text}{pager}', // {pager} will be replaced to text about current page
+                'templatePager' => ' - {pageText} {pageValue}', // template for such replacement
+
+                // method from \kovenant\seo\SeoModelBehavior that will return absolute url for page of this record
+                'absoluteUrlMethod' => 'getAbsoluteUrl'
+            ]
+        ],
+    ],
+    'view' => [
+        //you can use custom view for h1 support
+        'class' => 'kovenant\seo\SeoView',
+    ],
+````
+
+`componentNameAttribute` is required. Other component attributes are optional. 
+
+Text for default value of title and description is `componentNameAttribute`.
+
+If `viewH1Attribute` and `componentH1Attribute` are set they will be used as default value.
+
+`componentTitleAttribute`, `componentKeywordsAttribute` and `componentDescriptionAttribute` will set corresponding meta tags.
+
+i.e. default value = `componentNameAttribute` << `componentH1Attribute` << `componentTitleAttribute`
+
+---
+
+If you set `absoluteUrlMethod` from SeoModelBehavior and current page of widget != absolute url from model, canonical link tag will be added.
+
+---
+
+You can inherit from MetaTagsWidget and add your own getters to use in templates, like {appName} and {pager}
+
+---
+
+See more examples of usage in tests.

@@ -12,13 +12,30 @@ Yii::setAlias('@tests', __DIR__);
 new \yii\console\Application([
     'id' => 'unit',
     'basePath' => __DIR__,
+    'name' => 'SeoApp',
     'vendorPath' => dirname(__DIR__) . '/vendor',
+    'container' => [
+        'definitions' => [
+            'kovenant\seo\MetaTagsWidget' => [
+                'pageText' => 'Страница',
+                'viewH1Attribute' => 'h1',
+                'componentH1Attribute' => 'h1',
+                'componentTitleAttribute' => 'title',
+                'componentKeywordsAttribute' => 'keywords',
+                'componentDescriptionAttribute' => 'description',
+                'absoluteUrlMethod' => 'getAbsoluteUrl'
+            ]
+        ],
+    ],
     'components' => [
         'urlManager' => [
             'baseUrl' => '',
             'hostInfo' => 'https://example.com',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+        ],
+        'view' => [
+            'class' => 'kovenant\seo\SeoView',
         ],
     ]
 ]);

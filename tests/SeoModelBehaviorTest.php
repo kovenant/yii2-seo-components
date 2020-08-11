@@ -17,10 +17,10 @@ class SeoModelBehaviorTest extends TestCase
         $model = new ExampleModel();
 
         $routeUrl = $model->getRouteUrl();
-        self::assertSame(['/example/action', 'alias' => ExampleModel::EXAMPLE_ALIAS], $routeUrl);
+        self::assertSame(['/example/action', 'alias' => 'alias-value'], $routeUrl);
 
         $routeUrl = $model->getRouteUrl(['page' => '2']);
-        self::assertSame(['/example/action', 'alias' => ExampleModel::EXAMPLE_ALIAS, 'page' => '2'], $routeUrl);
+        self::assertSame(['/example/action', 'alias' => 'alias-value', 'page' => '2'], $routeUrl);
 
         $routeUrl = $model->getRouteUrl(['alias' => '{notExistsField}']);
         self::assertSame(['/example/action', 'alias' => '{notExistsField}'], $routeUrl);
@@ -31,10 +31,10 @@ class SeoModelBehaviorTest extends TestCase
         $model = new ExampleModel();
 
         $routeUrl = $model->getUrl();
-        self::assertSame('/example/action?alias=' . ExampleModel::EXAMPLE_ALIAS, $routeUrl);
+        self::assertSame('/example/action?alias=alias-value', $routeUrl);
 
         $routeUrl = $model->getUrl(['page' => '2']);
-        self::assertSame('/example/action?alias=' . ExampleModel::EXAMPLE_ALIAS . '&page=2', $routeUrl);
+        self::assertSame('/example/action?alias=alias-value&page=2', $routeUrl);
 
         $params = ['alias' => '{notExistsField}'];
         $routeUrl = $model->getUrl($params);
@@ -47,10 +47,10 @@ class SeoModelBehaviorTest extends TestCase
         $domain = \Yii::$app->urlManager->getHostInfo();
 
         $routeUrl = $model->getAbsoluteUrl();
-        self::assertSame($domain . '/example/action?alias=' . ExampleModel::EXAMPLE_ALIAS, $routeUrl);
+        self::assertSame($domain . '/example/action?alias=alias-value', $routeUrl);
 
         $routeUrl = $model->getAbsoluteUrl(['page' => '2']);
-        self::assertSame($domain . '/example/action?alias=' . ExampleModel::EXAMPLE_ALIAS . '&page=2', $routeUrl);
+        self::assertSame($domain . '/example/action?alias=alias-value&page=2', $routeUrl);
 
         $params = ['alias' => '{notExistsField}'];
         $routeUrl = $model->getAbsoluteUrl($params);
