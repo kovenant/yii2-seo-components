@@ -5,6 +5,7 @@ namespace kovenant\seo\tests;
 use kovenant\seo\MetaTagsWidget;
 use kovenant\seo\SeoView;
 use kovenant\seo\tests\models\ExampleModel;
+use PHPUnit\Framework\TestCase;
 use yii\base\InvalidConfigException;
 
 /**
@@ -12,7 +13,7 @@ use yii\base\InvalidConfigException;
  * @package kovenant\seo\tests
  * @author Anton Berezin <kovenant.rus@gmail.com>
  */
-class MetaTagsWidgetTest extends \PHPUnit_Framework_TestCase
+class MetaTagsWidgetTest extends TestCase
 {
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject
