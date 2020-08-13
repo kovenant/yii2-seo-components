@@ -9,7 +9,7 @@
 Installation
 ------------
 
-The preferred way to install this extension via [composer](http://getcomposer.org/download/).
+The preferred way to install this extension is via [composer](http://getcomposer.org/download/).
 
 Either run
 
@@ -28,9 +28,9 @@ SeoModelBehavior Usage
 
 Add SeoModelBehavior to your model
 
-{id}, {category_id} and {alias} will be replaced to attribute value of current model with such name
+{id}, {category_id} and {alias} will be replaced by the value of the attributes of the current model, that have such names
 
-{category.alias} will be replaced to relation's value of attribute
+{category.alias} will be replaced by relation's value an attribute
 
 ````php
     /**
@@ -62,9 +62,9 @@ Behavior provides three methods:
 
    * `$model->getUrl()` will return for example `/catalog/1-category-alias/5-item-alias.html`
 
-   * `$model->getAbsoluteUrl()` return `https://example.com/catalog/1-category-alias/5-item-alias.html`
+   * `$model->getAbsoluteUrl()` returns `https://example.com/catalog/1-category-alias/5-item-alias.html`
    
-Don't forget check your config file for pretty url settings
+Don't forget to check your config file for pretty url settings
 
 E.g.
 
@@ -114,14 +114,14 @@ Example of full options:
                 'pageText' => 'Страница', // page text [Page for default]
                 'pageParam' => 'page', // get param for current page
 
-                // templates settings {text} will be replaced to corresponding value
+                // templates settings {text} will be replaced with corresponding value
                 'templateH1' => '{text}',
                 'templateTitle' => '{text}{pager} | {appName}', // {appName} - name of application
                 'templateKeywords' => '{text}',
-                'templateDescription' => '{text}{pager}', // {pager} will be replaced to text about current page
+                'templateDescription' => '{text}{pager}', // {pager} will be replaced with text about current page
                 'templatePager' => ' - {pageText} {pageValue}', // template for such replacement
 
-                // method from \kovenant\seo\SeoModelBehavior that will return absolute url for page of this record
+                // method from \kovenant\seo\SeoModelBehavior that will return absolute url for the page of this record
                 'absoluteUrlMethod' => 'getAbsoluteUrl'
             ]
         ],
@@ -134,9 +134,9 @@ Example of full options:
 
 `componentNameAttribute` is required. Other component attributes are optional. 
 
-Text for default value of title and description is `componentNameAttribute`.
+The text for default value of title and description is `componentNameAttribute`.
 
-If `viewH1Attribute` and `componentH1Attribute` are set they will be used as default value.
+If `viewH1Attribute` and `componentH1Attribute` are set they will be used as a default value.
 
 `componentTitleAttribute`, `componentKeywordsAttribute` and `componentDescriptionAttribute` will set corresponding meta tags.
 
