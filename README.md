@@ -30,7 +30,7 @@ Add SeoModelBehavior to your model
 
 {id}, {category_id} and {alias} will be replaced by the value of the attributes of the current model, that have such names
 
-{category.alias} will be replaced by relation's value an attribute
+{category.alias} will be replaced by the value of the relation’s attribute
 
 ````php
     /**
@@ -114,9 +114,9 @@ Example of full options:
                 'pageText' => 'Страница', // page text [Page for default]
                 'pageParam' => 'page', // get param for current page
 
-                // templates settings {text} will be replaced with corresponding value
+                // In all templates placeholder {text} is an original value
                 'templateH1' => '{text}',
-                'templateTitle' => '{text}{pager} | {appName}', // {appName} - name of application
+                'templateTitle' => '{text}{pager} | {appName}', // {appName} will add name of application
                 'templateKeywords' => '{text}',
                 'templateDescription' => '{text}{pager}', // {pager} will be replaced with text about current page
                 'templatePager' => ' - {pageText} {pageValue}', // template for such replacement
